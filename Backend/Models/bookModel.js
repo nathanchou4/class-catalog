@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var validator = require('validator');
+var mongoosePaginate = require('mongoose-paginate-v2');
 
 var bookSchema = new mongoose.Schema({
     title: {
@@ -44,5 +45,6 @@ var bookSchema = new mongoose.Schema({
 });
 
 bookSchema.index({lastName: 1, firstName: 1});
+bookSchema.plugin(mongoosePaginate);
 
 var Book = module.exports = mongoose.model('Book', bookSchema);

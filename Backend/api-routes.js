@@ -12,8 +12,6 @@ router.get('/catalog', function(req, res) {
     service.getBooks(req, res);
 });
 
-router.get('/catalog/:title');
-
 router.post('/addBook', function(req, res) {
     service.addBook(req, res);
 });

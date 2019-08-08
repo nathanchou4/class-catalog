@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 
 mongoose.connect('mongodb://localhost:27017/admin', { useNewUrlParser: true });
 var db = mongoose.connection;
-if (!db) {c
+if (!db) {
     console.log('error connecting to db');
 } else {
     console.log('success connecting to db');

@@ -20,12 +20,15 @@ exports.addBook = function(req, res) {
 };
 
 exports.getBooks = function(req, res) {
-    return Book.find({}, function(err, books) {
+    var options = {
+        page: req.query.page,
+        limit: req.query.limit
+    };
+    Book.paginate({}, options, function(err, books) {
         if (err) {
-            console.log('err');
+            console.log("Pagination is erroring");
         } else {
-            res.send(books);
-            console.log('retrieved list of books, ' + books[0].title);
+            res.send(books.docs);
         }
     });
 };
